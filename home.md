@@ -1,25 +1,14 @@
 # FreeSwitch Development
 
-### Enabling SIP users to connect to this FreeSwitch server
+### Setting up a FreeSwitch server over a docker container and executing commands.
 
-```sh
-$ cd /usr/local/freeswitch/directory/default
-$ vim 1000.xml
-```
-Change the password field to any password
+System requirements
+- [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
-```sh
-<!--<param name="password" value="$${default_password}"/>-->
-<param name="password" value="darryl"/>
-```
-Reload the xml files for changes to take effect
-```sh
-$ fs_cli -x reloadxml
-```
-Connect a sip phone to our freeswitch server using the following credentials
-- Username: 1000
-- Password: darryl
-- IP Address: your_system_ip
+The following sequence is to be followed to set up and use FreeSwitch
 
-Repeat the same process for another user id and connect to the same Freeswitch server
-After the setup, we can directly call the extension and speak over the SIP Phone
+1. [Installing FreeSwitch using docker](freeswitch-installation)
+2. [Setting up a SIP Phone for basic voice testing](SIP-Phone-registrations)
+3. [Understanding and modifying a FreeSwitch Dialplan](freeswitch-dialplan)
+4. [Executing Many FreeSwitch Actions/Features](freeswitch-actions)
+5. [Installing custom FreeSwitch modules](freeswitch-modules)
