@@ -122,6 +122,55 @@ We can then proceed and make the following changes to our example.xml script
     </condition>
 </extension>
 ```
+Once again after saving this file, we need to reloadxml using
+
+```sh
+$ fs_cli -x reloadxml
+```
 
 After dialling 61998997, we will automatically get bridged to the user 1001, given that he answers the call. The call will continue until someone hangs up.
+
+### Run an IVR script
+
+We will now redirect our call to a python script which will use freeswitch actions as an API from the script. 
+We will need to create a python script and place it inside the docker container at the following location: /usr/local/freeswitch/scripts/
+
+We can create a sample script as follows:
+
+```sh
+import csv
+from freeswitch import *
+from datetime import datetime
+
+def handler(session,args):
+	message = "This is a log from the python ivr "
+	caller = session.getVariable("caller") # We use the variable we set previously in our Dialplan
+	session.execute("log",message + "Caller id is %s"%caller)
+	session.execute("playback","/tmp/drum.wav")
+	session.hangup()
+
+```
+Save it as sample.ivr.py, and copy it inside the docker container using
+
+```sh
+$ sudo docker cp sample_ivr.py <container_name>:/usr/local/freeswitch/scripts
+```
+
+We now need to add the following to example.xml
+
+```sh
+<extension name="play_ivr">
+    <condition field="destination_number" expression="^61998999$">
+        <action application="python" data="sample_ivr"/>
+    </condition>
+</extension>
+```
+Once again after saving this file, we need to reloadxml using
+
+```sh
+$ fs_cli -x reloadxml
+```
+
+We can now test this feature by dialling 61998999. In this example, we are logging the caller id, and then playing the drum.wav soundfile, then terminating. 
+
 
