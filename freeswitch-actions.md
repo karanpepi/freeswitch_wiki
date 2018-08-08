@@ -61,4 +61,28 @@ $ fs_cli -x reloadxml
 ```
 We can now test it by dialling 61998998. We will be prompted to enter a dtmf, we can press a key using our keypad. We will get a log of the key pressed in the freeswitch logs.
 
+### Record a message spoken by the user, play the recorded message back to him
+
+In this example, we will record a soundfile, place it as /tmp/data.wav and play the same file after the recording is complete. The recording will be for 5 seconds.
+
+We will edit example.xml to include the following extension
+
+```sh
+<extension name="record_session">
+    <condition field="destination_number" expression="^61999000$">
+        <action application="set" data="playback_terminators=#"/>
+        <action application="record" data="/tmp/data.wav 5"/>
+        <action application="playback" data="/tmp/data.wav"/>
+    </condition>
+</extension>
+
+```
+Once again after saving this file, we need to reloadxml using
+
+```sh
+$ fs_cli -x reloadxml
+```
+
+This can be tested by dialling 61999000 on the sip phone. We need to begin recording as soon as the call is answered. After 5 seconds, or on press of #, our recording will terminate and the sound we had recorded will be played to us.
+
 
