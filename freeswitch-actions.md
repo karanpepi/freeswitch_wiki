@@ -85,7 +85,7 @@ $ fs_cli -x reloadxml
 
 This can be tested by dialling 61999000 on the sip phone. We need to begin recording as soon as the call is answered. After 5 seconds, or on press of #, our recording will terminate and the sound we had recorded will be played to us.
 
-# Speak out a numeric entry
+### Speak out a numeric entry
 
 This example will use a pre-built freeswitch module 'say' to speak out any numeric value we pass to it.
 
@@ -105,4 +105,23 @@ Once again after saving this file, we need to reloadxml using
 $ fs_cli -x reloadxml
 ```
 This can be tested by dialling 61997000 on the sip phone, A sound will be played speaking out the value of 12345 in words. We can substitute "12345" using the above Play and get digits example to get a more dynamic example.
+
+### Bridge the call to another user registered on the same server
+
+This example assumes that our primary user has registered on a sip phone network using the local Freeswitch IP and ID=1000
+Out secondary user needs to be registered on the same network with ID=1001
+
+Registration instructions can be found in [SIP Phone registration](home)
+
+We can then proceed and make the following changes to our example.xml script
+
+```sh
+<extension name="bridge_somewhere">
+    <condition field="destination_number" expression="^61998997$">
+        <action application="bridge" data="user/1001@172.16.1.60"/>
+    </condition>
+</extension>
+```
+
+After dialling 61998997, we will automatically get bridged to the user 1001, given that he answers the call. The call will continue until someone hangs up.
 
