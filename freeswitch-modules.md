@@ -70,3 +70,26 @@ Open up /usr/local/freeswitch/conf/autoload_configs/modules.conf.xml and uncomme
 Next step, restart freeswitch
 
 These steps will install mod_shout successfully.
+
+### Installing mod_flite
+We need to uncomment the asr_tts/mod_flite line from the modules.conf file.
+
+```sh
+$ vi /usr/local/src/freeswitch/modules.conf
+```
+Uncomment the asr_tts/mod_flite and run the following command
+
+```sh
+$ make install
+```
+
+In freeswitch/conf/autoload_configs/modules.conf.xml:
+- Uncomment <load module="mod_flite"/>
+
+```sh
+<load module="mod_flite"/>
+```
+
+Next step, restart freeswitch
+
+These steps will install mod_flite successfully.
