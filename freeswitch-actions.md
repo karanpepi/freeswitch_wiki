@@ -28,8 +28,37 @@ We will now create a new example.xml file in the dialplan and make changes in th
 </include>
 ```
 
+After saving the file, we need to run the following command to reload the xml files
+
+```sh
+$ fs_cli -x reloadxml
+```
+
 The above extension will match for destination 61998996. If a match is found, it will enter the condition and play the soundfile found as /tmp/drum.wav and exit.
 
 This can be demonstrated by dialling 61998996 from a sip phone connected to this freeswitch server.
+
+#### Play a pre-recorded soundfile and capture user input from the keypad
+
+Once again, we need a pre-recorded soundfile that will play, preferably, 'Please enter either 1 or 2 from your keypad', we will wait for the user input and log the key that the user pressed.
+
+Assuming our soundfile is present in /tmp/welcome_pagd.wav
+
+We will edit the example.xml file to include new extensions
+
+```sh
+<extension name="play_and_get_digits example">
+  <condition field="destination_number" expression="^61998998$">
+    <action application="play_and_get_digits" data="1 1 2 5000 # /tmp/soundfiles/initial.wav /tmp/yamaha.wav foobar \d"/>
+    <action application="log" data="DTMF ENTERED BY DARRYL IS ${foobar}"/>
+  </condition>
+</extension>
+```
+Once again after saving this file, we need to reloadxml using
+
+```sh
+$ fs_cli -x reloadxml
+```
+We can now test it by dialling 61998998. We will be prompted to enter a dtmf, we can press a key using our keypad. We will get a log of the key pressed in the freeswitch logs.
 
 
