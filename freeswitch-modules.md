@@ -16,7 +16,7 @@ $ cd /usr/local/src/freeswitch
 Install python-dev package 
 
 ```sh
-apt-get install python python-dev
+$ apt-get install python python-dev
 ```
 Enable compilation in modules.conf:
 - Edit modules.conf and uncomment languages/mod_python
@@ -24,7 +24,7 @@ Enable compilation in modules.conf:
 Recompile and install FreeSWITCH:
 
 ```sh
-make install all
+$ make install all
 ```
 
 Enabling mod_python
@@ -44,6 +44,29 @@ These steps will install mod_python successfully.
 Run the following command inside the container
 
 ```sh
-apt-get install libvorbis0a libogg0 libogg-dev libvorbis-dev
+$ apt-get install libvorbis0a libogg0 libogg-dev libvorbis-dev
+```
+This will install dependencies needed by mod_shout
+
+Edit modules.conf in /usr/local/src/freeswitch directory to add mod_shout.
+
+```sh
+formats/mod_shout
+```
+Configure/Make:
+
+```sh
+$ ./configure && make install
 ```
 
+Enabling mod_shout
+
+Open up /usr/local/freeswitch/conf/autoload_configs/modules.conf.xml and uncomment the line that has
+
+```sh
+<load module="mod_shout"/>
+```
+
+Next step, restart freeswitch
+
+These steps will install mod_shout successfully.
