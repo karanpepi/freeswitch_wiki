@@ -12,3 +12,4 @@ The following sequence is to be followed to set up and use FreeSwitch
 3. [Understanding and modifying a FreeSwitch Dialplan](freeswitch-dialplan)
 4. [Executing Many FreeSwitch Actions/Features](freeswitch-actions)
 5. [Installing custom FreeSwitch modules](freeswitch-modules)
+6. [Installing CDR Pingback on a configured HTTP POST URL](installing-and-configuring-json-cdrs)
