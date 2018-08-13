@@ -13,3 +13,4 @@ The following sequence is to be followed to set up and use FreeSwitch
 4. [Executing Many FreeSwitch Actions/Features](freeswitch-actions)
 5. [Installing custom FreeSwitch modules](freeswitch-modules)
 6. [Installing CDR Pingback on a configured HTTP POST URL](installing-and-configuring-json-cdrs)
+7. [Adding an event listener to FreeSwitch](freeswitch-event-subscription)
