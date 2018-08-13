@@ -7,7 +7,7 @@ Creating a python based TCP event listener to listen to all/filtered FreeSwitch 
 - Installing Python's Event socket listener (ESL) Library
 
 ```sh
-$ cd /usr/local/freeswitch/src
+$ cd /usr/src/freeswitch/
 $ make pymod
 $ make pymod-install
 ```
