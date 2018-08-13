@@ -63,7 +63,7 @@ SQL>
 <configuration name="odbc_cdr.conf" description="ODBC CDR Configuration">
   <settings>
     <!-- <param name="odbc-dsn" value="database:username:password"/> -->
- <param name="odbc-dsn" value="odbc://freeswitch:root:karan1992"/>
+ <param name="odbc-dsn" value="odbc://databasename:username:passowrd"/>
         <!-- global value can be "a-leg", "b-leg", "both" (default is "both") -->
         <param name="log-leg" value="both"/>
     <!-- value can be "always", "never", "on-db-fail" -->
