@@ -22,3 +22,5 @@ In this event, we receive a single CDR for a Call UUID. The following is a descr
 | variable_uduration | 14600035 | Call duration in microseconds
 | variable_answerusec | 0 | Time taken to answer the call in microseconds
 | variable_billusec | 0 | Time taken in a bridged session in microseconds
+| variable_start_stamp | 2018-08-14 10:24:32 | Call start Datetime
+| variable_end_stamp | 2018-08-14 10:24:46 | Call end Datetime
