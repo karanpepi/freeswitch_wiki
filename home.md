@@ -14,6 +14,7 @@ The following sequence is to be followed to set up and use FreeSwitch
 5. [Installing custom FreeSwitch modules](freeswitch-modules)
 6. [Installing CDR Pingback on a configured HTTP POST URL](installing-and-configuring-json-cdrs)
 7. [Adding an event listener to FreeSwitch](freeswitch-event-subscription)
+8. [Making CURL requests using FreeSwitch Dialplan](curl-requests)
 
 ### Event listening and CDRs
 Please proceed only if you have set up an event listener script from the previous section.
