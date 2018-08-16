@@ -16,5 +16,7 @@ The following sequence is to be followed to set up and use FreeSwitch
 7. [Adding an event listener to FreeSwitch](freeswitch-event-subscription)
 
 ### Event listening and CDRs
+Please proceed only if you have set up an event listener script from the previous section.
+
 Each event is sent to a RabbitMQ Queue
 1. [Event listening for CDR](events-cdr)
