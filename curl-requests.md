@@ -26,7 +26,7 @@ $ make && make install
 
 Configuring a dialplan to receive instructions when user dials extension 61998990 to hangup the call and send the caller id to the HTTP API.
 
-1. Configuring a GET request using mod_curl
+ -  Configuring a GET request using mod_curl
 Add the following lines in /usr/local/freeswitch/conf/dialplan/default/example.xml
 
 ```sh
@@ -38,3 +38,12 @@ Add the following lines in /usr/local/freeswitch/conf/dialplan/default/example.x
 </extension>
 ```
 Save the file and enter fs_cli -x reloadxml to reload xml files. Next, dial 61998990 and Freeswitch will hit the configured URL with the caller id in the msisdn field
+
+ -  Configuring a POST request using mod_curl
+Modify the following actions
+
+```sh
+#<action application="curl" data="http://localhost:8000/hitAPI?msisdn=${caller_id_number}"/>
+<action application="curl" data='http://localhost:8000/hitAPI content-type application/json post {"msisdn":"${caller_id_number}"}'/>
+```
+Reload XML and call on 61998990 to receive a POST request on the configured URL
