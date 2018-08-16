@@ -22,7 +22,7 @@ $ make && make install
 
 4. Restart FreeSwitch
 
-### Application: Sending caller id to HTTP APIs
+### Application: Sending caller id to HTTP APIs (Missed call service)
 
 Configuring a dialplan to receive instructions when user dials extension 61998990 to hangup the call and send the caller id to the HTTP API.
 
