@@ -21,3 +21,6 @@ Please proceed only if you have set up an event listener script from the previou
 
 Each event is sent to a RabbitMQ Queue
 1. [Event listening for CDR](events-cdr)
+
+### SIP Configurations
+1. [Configuring an external SIP trunk](configuring-external-sip)
