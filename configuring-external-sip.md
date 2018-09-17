@@ -76,7 +76,7 @@ $ originate {origination_caller_id_number=9821277407,continue_on_fail=true}sofia
 
 ```
 - Example of transferring a call to a dialplan with extension 61998999
-
 ```sh
-$ originate {origination_caller_id_number=9821277407,continue_on_fail=true}sofia/gateway/enterux/917045345285 61998999 XML default
+$ originate {ignore_early_media=true,origination_caller_id_number=9821277407,continue_on_fail=true}sofia/gateway/enterux/917045345285 61998999 XML default
 ```
+ - Not having ignore early media will start to play the IVR/Soundfile without the customer having to pick the call, customer may get delayed voice response
