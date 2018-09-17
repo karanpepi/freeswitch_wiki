@@ -75,3 +75,8 @@ $ originate {origination_caller_id_number=9821277407,continue_on_fail=true}sofia
 
 
 ```
+- Example of transferring a call to a dialplan with extension 61998999
+
+```sh
+$ originate {origination_caller_id_number=9821277407,continue_on_fail=true}sofia/gateway/enterux/917045345285 61998999 XML default
+```
