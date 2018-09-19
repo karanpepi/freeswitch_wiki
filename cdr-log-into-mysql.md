@@ -2,20 +2,20 @@
  
 - Install unixODBC
 
-  ```
+```sh
 sudo apt-get install unixodbc-dev
-  ```
+```
 
 - Install the unixODBC driver
 
-  ```
+```sh
 sudo apt-get install libmyodbc
-  ```
+```
 
 - Configure odbc.ini and odbcinst.ini
   * /etc/odbc.ini for MySQL
 
-    ```
+```sh
 [freeswitch]
 Driver = /usr/lib64/odbc/libmyodbc.so
 SERVER = localhost
@@ -24,10 +24,11 @@ DATABASE = freeswitch
 OPTION = 67108864
 USER = root 
 PASSWORD = password
-    ```
+```
+
  * /etc/odbcinst.ini for MySQL
 
-    ```
+```sh
 [MySQL]
 Description = MySQL driver
 Driver = /usr/lib64/odbc/libmyodbc.so
@@ -35,14 +36,16 @@ Setup = /usr/lib64/odbc/libodbcmyS.so
 UsageCount = 1
 FileUsage = 1
 Threading = 0
-    ``` 
+``` 
 
 - Now we need to test if you set-up ODBC correctly run the command below in CLI
-   ```
+
+```sh
 isql -v freeswitch
-   ```
+```
+
 - If the above command gives below output then the ODBC is setup correctly
-   ```
+```sh
 +---------------------------------------+
 | Connected!                            |
 |                                       |
@@ -52,14 +55,14 @@ isql -v freeswitch
 |                                       |
 +---------------------------------------+
 SQL>
-   ```
+```
 - Adding mod_odbc_cdr in modules.conf.xml
- ```
+```sh
     <load module="mod_odbc_cdr"/>
 ```
 
 - Add below code in odbc_cdr.conf.xml
-```
+```sh
 <configuration name="odbc_cdr.conf" description="ODBC CDR Configuration">
   <settings>
     <!-- <param name="odbc-dsn" value="database:username:password"/> -->
@@ -122,7 +125,7 @@ SQL>
 
 - Create the following tables
 
-```
+```sh
 CREATE TABLE IF NOT EXISTS `cdr_table_a_leg` (
 `CallId` varchar(80) DEFAULT NULL,
 `orig_id` varchar(80) DEFAULT NULL,
