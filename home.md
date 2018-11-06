@@ -24,3 +24,7 @@ Each event is sent to a RabbitMQ Queue
 
 ### SIP Configurations
 1. [Configuring an external SIP trunk](configuring-external-sip)
+
+### Security handling in freeswitch via fail2ban
+
+1. [Installing Fail2Ban and configurations](Fail-to-Ban)
