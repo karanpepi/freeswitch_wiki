@@ -40,3 +40,16 @@ If all these files are present, we can restart freeswitch
 ## Step 2
 FreeSWITCH will start its websocket over port 7443 and this can be used by any JS client
 - Install sipmljs and connect to freeswitch
+
+-  Git clone the sipml project
+```sh
+git clone https://github.com/DoubangoTelecom/sipml5.git
+```
+- Visit the index page from the web browser
+Enter the path to the index.html on your browser
+
+- Configure the options as per the username/password combination and save the settings.
+
+- We can now receive/create calls using this as a SIP client
+
+
