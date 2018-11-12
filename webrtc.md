@@ -53,3 +53,4 @@ Enter the path to the index.html on your browser
 - We can now receive/create calls using this as a SIP client
 
 
+(The above was tested and works on chromium v49 with self signed certificates)
