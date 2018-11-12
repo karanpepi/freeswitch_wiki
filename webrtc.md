@@ -2,6 +2,7 @@
 
 ### Requirements
 - SSL Certificates (Self signed are ok, too)
+- Domain name pointing to the freeswitch server
 
 ## Step 1:
 - Begin by setting up the following in the vars.xml file in freeswitch
@@ -49,6 +50,18 @@ git clone https://github.com/DoubangoTelecom/sipml5.git
 Enter the path to the index.html on your browser
 
 - Configure the options as per the username/password combination and save the settings.
+
+Use the following format:
+1. Display name: username e.g. 1002
+2. Private identity: username e.g. 1002
+3. Public identity: sip:1002@fsdarryl.com
+4. Password: 1002
+5. Realm: fsdarryl (arbitrary)
+
+fsdarryl.com is a dummy hostname that is configured into my /etc/hosts as I don't have a registered domain name
+
+Enter web socket url into expert mode as wss:fsdarryl.com:7443
+Save the details and proceed to make calls
 
 - We can now receive/create calls using this as a SIP client
 
