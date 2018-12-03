@@ -34,3 +34,6 @@ originate {video-canvas-size=240x160,video-codec-bandwidth=1mb,rtp_video_max_ban
 
 https://hub.docker.com/r/bettervoice/freeswitch-container/~/dockerfile/
 
+**For testing purpose a softphone that support video codec is needed.**
+
+Ekiga softphone with video support can be used.
