@@ -23,11 +23,12 @@ You will need to add the global codec preferences in vars.xml file with the belo
         </extension>
 ```
 
-**Alter the Video resolution**
+**Alter the Video resolution/bandwidth**
 
 ```
-originate {video-canvas-size=240x160,video-codec-bandwidth=1mb,rtp_video_max_bandwidth_in=1mb,rtp_video_max_bandwidth_out=1mb,rtp_mirror_fmtp=true}user/1005@172.16.0.159 &bridge(user/1004@172.16.0.159)
+originate {rtp_video_max_bandwidth_in=1mb,rtp_video_max_bandwidth_out=1mb,rtp_mirror_fmtp=true}user/1005@172.16.0.159 &bridge(user/1004@172.16.0.159)
 ```
+### Sample values for Bandwidth are values in kbs or mbs. e.g. 10kb, 1mb, etc
 
 
 **Docker Image that was used for Video OBD can be found in the below link**
